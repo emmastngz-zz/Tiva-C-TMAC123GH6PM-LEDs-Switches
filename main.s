@@ -7,10 +7,13 @@ GPIO_PORTF_LOCK_R	EQU		0x40025520
 GPIO_PORTF_CR_R		EQU		0x40025524
 GPIO_LOCK_KEY		EQU		0X4C4F434B
 
-
-RED					EQU		0x02 ; Ob 0000 0010
 ; Switch = PF4		
 ; Switch = PF0
+
+RED					EQU		0x02 ; Ob 0000 0010
+BLUE				EQU		0x04 ; Ob 0000 0100
+GREEN				EQU		0x08 ; ob 0000 1000
+
 SEC_DIV_FIVE		EQU		1066666 ; 1 second divided by 5
 
 
@@ -31,7 +34,7 @@ loop
 	B 		loop
 	
 Switch_On
-	MOV R0,#RED
+	MOV R0,#BLUE
 	BL 	Output
 	B loop
 	
@@ -68,7 +71,7 @@ GPIO_init
 	STR R0,[R1]
 	
 	LDR R1,=GPIO_PORTF_DIR_R
-	MOV R0, #0x02 ; 0b 0000 0010
+	MOV R0, #0x06 ; 0b 0000 0110
 	STR R0,[R1]
 	
 	LDR R1,=GPIO_PORTF_PUR_R
@@ -76,7 +79,7 @@ GPIO_init
 	STR R0,[R1]
 	
 	LDR R1,=GPIO_PORTF_DEN_R
-	MOV R0,#0X13 ; 0b 0001 0011
+	MOV R0,#0X17 ; 0b 0001 0111
 	STR R0,[R1]
 	
 	BX LR
