@@ -48,7 +48,7 @@ Switch_On_2
 	B loop
 
 Both_Switches
-	MOV R0,#RED
+	MOV R0,#(RED+BLUE+GREEN)
 	BL Output
 	B loop
 
