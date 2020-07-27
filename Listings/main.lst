@@ -62,7 +62,7 @@ ARM Macro Assembler    Page 1
    34 00000016 E7F5            B                loop
    35 00000018         
    36 00000018         Switch_On
-   37 00000018 F04F 0004       MOV              R0,#BLUE
+   37 00000018 F04F 0008       MOV              R0,#GREEN
 
 
 
@@ -107,7 +107,7 @@ ARM Macro Assembler    Page 2
    71 0000004E 6008            STR              R0,[R1]
    72 00000050         
    73 00000050 490C            LDR              R1,=GPIO_PORTF_DIR_R
-   74 00000052 F04F 0006       MOV              R0, #0x06   ; 0b 0000 0110
+   74 00000052 F04F 000E       MOV              R0, #0x0E   ; 0b 0000 1110
    75 00000056 6008            STR              R0,[R1]
    76 00000058         
    77 00000058 490B            LDR              R1,=GPIO_PORTF_PUR_R
@@ -115,7 +115,7 @@ ARM Macro Assembler    Page 2
    79 0000005E 6008            STR              R0,[R1]
    80 00000060         
    81 00000060 490A            LDR              R1,=GPIO_PORTF_DEN_R
-   82 00000062 F04F 0017       MOV              R0,#0X17    ; 0b 0001 0111
+   82 00000062 F04F 001F       MOV              R0,#0X1F    ; 0b 0001 1111
    83 00000066 6008            STR              R0,[R1]
    84 00000068         
    85 00000068 4770            BX               LR
@@ -237,8 +237,8 @@ Symbol: BLUE
    Definitions
       At line 14 in file main.s
    Uses
-      At line 37 in file main.s
-Comment: BLUE used once
+      None
+Comment: BLUE unused
 GPIO_LOCK_KEY 4C4F434B
 
 Symbol: GPIO_LOCK_KEY
@@ -308,8 +308,8 @@ Symbol: GREEN
    Definitions
       At line 15 in file main.s
    Uses
-      None
-Comment: GREEN unused
+      At line 37 in file main.s
+Comment: GREEN used once
 RED 00000002
 
 Symbol: RED

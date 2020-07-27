@@ -34,7 +34,7 @@ loop
 	B 		loop
 	
 Switch_On
-	MOV R0,#BLUE
+	MOV R0,#GREEN
 	BL 	Output
 	B loop
 	
@@ -71,7 +71,7 @@ GPIO_init
 	STR R0,[R1]
 	
 	LDR R1,=GPIO_PORTF_DIR_R
-	MOV R0, #0x06 ; 0b 0000 0110
+	MOV R0, #0x0E ; 0b 0000 1110
 	STR R0,[R1]
 	
 	LDR R1,=GPIO_PORTF_PUR_R
@@ -79,7 +79,7 @@ GPIO_init
 	STR R0,[R1]
 	
 	LDR R1,=GPIO_PORTF_DEN_R
-	MOV R0,#0X17 ; 0b 0001 0111
+	MOV R0,#0X1F ; 0b 0001 1111
 	STR R0,[R1]
 	
 	BX LR
