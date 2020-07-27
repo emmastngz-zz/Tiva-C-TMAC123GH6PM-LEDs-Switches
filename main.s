@@ -29,15 +29,29 @@ loop
 	BL 		delay
 	BL 		Input
 	CMP 	R0,#0x01
-	BEQ 	Switch_On
+	BEQ 	Switch_On_1
+	CMP 	R0,#0x10
+	BEQ 	Switch_On_2
+	CMP		R0,#0x00
+	BEQ		Both_Switches
 	BL 		Output
 	B 		loop
 	
-Switch_On
+Switch_On_1
 	MOV R0,#GREEN
 	BL 	Output
 	B loop
 	
+Switch_On_2
+	MOV R0,#BLUE
+	BL Output
+	B loop
+
+Both_Switches
+	MOV R0,#RED
+	BL Output
+	B loop
+
 Output
 	LDR R1,=GPIO_PORTF_DATA_R
 	STR R0,[R1]
